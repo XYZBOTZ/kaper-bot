@@ -1,23 +1,13 @@
+/by AsuKidal
+
 let fetch = require('node-fetch')
-let handler = async (m, { conn, args }) => {
-  if (!args[0]) throw 'Uhm...url nya mana?'
- let chat = global.db.data.chats[m.chat]
-    m.reply(wait)
-await conn.reply(m.chat, `Downloading media from Tiktok`, 0, {
-  contextInfo: { mentionedJid: [m.sender],
-    externalAdReply :{
-    mediaUrl: linkig,
-    mediaType: 2,
-    description: deslink , 
-    title: titlink,
-    body: wm, //`${fileSizeH}`,
-    thumbnail: await(await fetch(img)).buffer(),
-    sourceUrl: linkgc
-     }}
-  })
-    let url = `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`
-let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.php?url=${args[0]}`)).data}` 
-    await conn.sendFile(m.chat, `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`, 'tiktokaudio.mp3', `
+let fs = require('fs')
+let handler = async(m, { conn, usedPrefix, text, command }) => {
+    if (!text) throw `Harap masukkan URL sebagai teks \n\nContoh : ${usedPrefix + command} https://vt.tiktok.com/ZSdt3AP9D/?k=1`
+    let res = await fetch(`https://api-kaysa.herokuapp.com/api/tiktok?url=${text}&apikey=KaysaS`)
+    if (!res.ok) throw await `${res.status} ${res.statusText}`
+    let json = await res.json()
+    await conn.sendFile(m.chat, json.medias[2].url, 'tiktokaudio.mp3', `
 ┏┉━━━━━━━━━━━❏
 ┆ *YOUTUBE MP3*
 ├┈┈┈┈┈┈┈┈┈┈┈
@@ -26,7 +16,7 @@ let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.
 ┆• *📥 Ukuran File:* 
 └❏
 `.trim(), m, null, {
-   document: { url: `https://api.lolhuman.xyz/api/tiktokwm?apikey=9b817532fadff8fc7cb86862&url=${args[0]}`}, mimetype: 'audio/mpeg', fileName: 'tiktok.mp3', conntextInfo: {
+   document: { url: json.medias[2].url, mimetype: 'audio/mpeg', fileName: 'tiktok.mp3', conntextInfo: {
         externalAdReply: {
             title: '▶︎ ━━━━━━━•────────────────── ', 
             body: 'Now Playing...',
@@ -38,9 +28,11 @@ let txt = `🚀 *Link:* ${await(await axios.get(`https://tinyurl.com/api-create.
      }
   })
 }
+handler.help = ['tiktokaudio *link*']
 handler.tags = ['downloader']
-handler.command = /^(tt|tiktok)(a(udio)?|mp3|sound)(dl)?(download(er)?)?$/i
+handler.command = /^tiktokaudio$/i
 
+handler.register = true
 handler.limit = true
 
 module.exports = handler
