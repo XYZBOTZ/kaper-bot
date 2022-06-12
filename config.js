@@ -4,7 +4,9 @@ global.mods = JSON.parse(fs.readFileSync('./src/moderator.json')) // Want some h
 global.thumbt = global.img
 global.fsx = 999999999999
 global.kontak = [
-['6282146092695', 'AhmdLui', 'Kocak Gaming', 'ayonimasangat@gmail.com', true]
+['6282146092695', 'AhmdLui', 'Kocak Gaming', 'ayonimasangat@gmail.com', true],
+['6289655134392', 'Rika❤️', 'Kocak Gaming', 'Nothing!', true]
+
 ]
 global.APIs = { // API Prefix
   // name: 'https://website'
