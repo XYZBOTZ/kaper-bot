@@ -50,7 +50,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
 
   let tags
   let teks = `${args[0]}`.toLowerCase()
-  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'asupan', 'internet', 'anonymous', 'anime', 'nulis', 'downloader', 'jadwal', 'tools', 'fun', '18+', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
+  let arrayMenu = ['all', 'game', 'rpg', 'xp', 'stiker', 'kerangajaib', 'quotes', 'admin', 'grup', 'premium', 'asupan', 'internet', 'anonymous', 'anime', 'nulis', 'downloader', 'jadwal', 'tools', 'fun', '18+', 'vn', 'database', 'quran', 'audio', 'jadibot', 'info', 'tanpakategori', 'owner']
   if (!arrayMenu.includes(teks)) teks = '404'
   if (teks == 'all') tags = {
     'main': 'UTAMA',
@@ -72,6 +72,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     'tools': 'Tools',
     'fun': 'Fun',
     '18+': 'Gore & Hentai',
+    'vn': 'Sound & Vn', 
     'database': 'Database',
     'vote': 'Voting',
     'absen': 'Absen',
@@ -132,9 +133,12 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == 'fun') tags = {
     'fun': 'Fun'
   }
-    if (teks == '18+') tags = {
+  if (teks == '18+') tags = {
     '18+': 'Gore & Hentai'
   }
+  if (teks == 'vn') tags = {
+    'vn': 'Sound & Vn'
+  }  
   if (teks == 'database') tags = {
     'database': 'Database'
   }
@@ -269,6 +273,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Tools', rowId: `${_p + command} tools` },
           { title: 'Fun', rowId: `${_p + command} fun`},
           { title: 'Gore & Hentai', rowId: `${_p + command} 18+`},
+          { title: 'Sound & Vn', rowId: `${_p + command} vn`},          
           { title: 'Database', rowId: `${_p + command} database` },
           { title: 'Vote & Absen', rowId: `${_p + command} vote` },
           { title: "Al-Qur\'an", rowId: `${_p + command} quran` },
@@ -341,7 +346,7 @@ Jangan Lupa makan Dan juga ${alarmsolat()}
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `🏅Owner`, `${_p}owner`, `🎖ThanksTo`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}donasi`, m)
+    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `😎Own`, `${_p}owner`, `😅Trimakasih`, `${_p}tqto`, `Sumbangan😭`, `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e

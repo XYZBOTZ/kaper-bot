@@ -17,7 +17,7 @@ Ketik ${usedPrefix}tebe untuk bantuan
 Bonus: ${poin} XP
     `.trim()
   conn.tebakbendera[id] = [
-    await conn.sendButtonImg(m.chat, json.img, caption, 'recode by Lui', 'Bantuan', '.tebe', m, true)
+    await conn.sendButtonImg(m.chat, json.img, caption, 'recode by Lui', 'Bantuan', '.tebe', m)
     ,
     json, poin,
     setTimeout(async () => {

@@ -9,7 +9,7 @@ handler.before = async function (m) {
     if (m.quoted.id == this.tebaklagu[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tebaklagu[id][1]))
         // m.reply(JSON.stringify(json, null, '\t'))
-        if (m.text.toLowerCase() == json.judul.toLowerCase()) {
+        if (m.text.toLowerCase() == json.judul.toLowerCase().trim()) {
             global.db.data.users[m.sender].exp += this.tebaklagu[id][2]
             conn.sendBut(m.chat, `*Benar!*\n+${this.tebaklagu[id][2]} XP`, wm, 'Tebak Lagu', '.tebaklagu', m)
             clearTimeout(this.tebaklagu[id][3])

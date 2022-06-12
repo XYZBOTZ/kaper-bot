@@ -1,7 +1,7 @@
 {
-    "name": "Anjim",
-    "version": "1.0.1",
-    "description": "Jangan Lupa Turu",
+    "name": "Raxcel-MD",
+    "version": "2.23.5.2022",
+    "description": "Simple Bot WhatsApp with Baileys Multi Device",
     "depecrated": false,
     "main": "index.js",
     "directories": {

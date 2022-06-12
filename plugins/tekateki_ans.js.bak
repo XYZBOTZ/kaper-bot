@@ -9,7 +9,7 @@ handler.before = async function (m) {
     if (m.quoted.id == this.tekateki[id][0].id) {
         let json = JSON.parse(JSON.stringify(this.tekateki[id][1]))
         if (['.tete', 'Bantuan', ''].includes(m.text)) return !0
-        if (m.text.toLowerCase() == json.jawaban.toLowerCase()) {
+        if (m.text.toLowerCase() == json.jawaban.toLowerCase().trim()) {
             db.data.users[m.sender].exp += this.tekateki[id][2]
             db.data.users[m.sender].dailyReward += 1
             await this.sendBut(m.chat, `*Benar!* +${this.tekateki[id][2]} XP`, `By Lui`, 'Teka Teki', '.tekateki', m)

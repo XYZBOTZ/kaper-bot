@@ -20,7 +20,7 @@ Ketik ${usedPrefix}tete untuk bantuan
 Bonus: ${poin} XP
 `.trim()
     conn.tekateki[id] = [
-        await conn.sendBut(m.chat, caption, `Recode by Lui`, 'Bantuan', `.tete`, m, false),
+        await conn.sendBut(m.chat, caption, `Recode by Lui`, 'Bantuan', `.tete`, m),
         json, poin,
         setTimeout(async () => {
             if (conn.tekateki[id]) await conn.sendBut(m.chat, `Waktu habis!\nJawabannya adalah *${json.jawaban}*`, `Recode by Lui`, 'Teka Teki', `.tekateki`, conn.tekateki[id][0])

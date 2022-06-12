@@ -136,7 +136,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
   if (teks == '18+') tags = {
     '18+': 'Gore & Hentai'
   }
-  if (teks == '18+') tags = {
+  if (teks == 'vn') tags = {
     'vn': 'Sound & Vn'
   }  
   if (teks == 'database') tags = {
@@ -252,7 +252,7 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
       let judul = `${ucapan()}, ${name}`.trim()
       const sections = [
       {
-        title: 'Aku sayang Rika ❤️',
+        title: 'Rika ❤️',
         rows: [
           { title: 'Semua Perintah', rowId: `${_p + command} all` },
           { title: 'Game', rowId: `${_p + command} game` },
@@ -346,7 +346,7 @@ Jangan Lupa makan Dan juga ${alarmsolat()}
       readmore: readMore
     }
     text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length - a.length).join`|`})`, 'g'), (_, name) => '' + replace[name])
-    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `🏅Owner`, `${_p}owner`, `🎖ThanksTo`, `${_p}tqto`, `🎗  Donasi  🎗`, `${_p}donasi`, m)
+    await conn.send3TemplateButtonImg(m.chat, await genProfile(conn, m), text.trim(), wm, `😎Own`, `${_p}owner`, `😅Trimakasih`, `${_p}tqto`, `Sumbangan😭`, `${_p}donasi`, m)
   } catch (e) {
     conn.reply(m.chat, 'Maaf, menu sedang error', m)
     throw e
