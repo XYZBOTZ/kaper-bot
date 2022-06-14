@@ -4,13 +4,13 @@ let fetch = require('node-fetch')
 let fs = require('fs')
 let handler = async(m, { conn, usedPrefix, text, command }) => {
 
-    let res = `https://api.zacros.my.id/asupan/${command}`
-    
-    conn.sendFile(m.chat, res, '', `Asupannya nih`, m)
+  let res = await (await fetch(`https://raw.githubusercontent.com/Z-zxQ/Asupan/main/cecan/${command}.json`)).json()
+  let json = res[Math.floor(Math.random() * res.length)]
+  await conn.sendButtonImg(m.chat, json.url, `Cwe gw nih boss!!`, wm, 'Lagi banh', `${usedPrefix + command}`, m, false)
 }
-handler.help = ['hijaber', 'ukhty', 'santuy', 'cecan', 'indonesia', 'malaysia', 'thailand', 'vietnam', 'china', 'korea', 'japan']
+handler.help = [ 'indonesia', 'malaysia', 'thailand', 'vietnam', 'china', 'korea', 'japan']
 handler.tags = ['asupan']
-handler.command = /^(hijaber|ukhty|santuy|cecan|Indonesia|malaysia|thailand|vietnam|china|korea|japan)$/i
+handler.command = /^(Indonesia|malaysia|thailand|vietnam|china|korea|japan)$/i
 
 handler.register = true
 

@@ -26,7 +26,7 @@ global.APIs = { // API Prefix
 global.APIKeys = { // APIKey Here
   // 'https://website': 'apikey'
   'https://api.neoxr.eu.org': 'yntkts',
-  'https://api.xteam.xyz': 'Apikeys',
+  'https://api.xteam.xyz': 'apivproject',
   'https://melcanz.com': 'Apikeys',
   'https://api.lolhuman.xyz': 'Papah-Chan',
   'http://zekais-api.herokuapp.com': 'zekais',
@@ -98,26 +98,52 @@ global.rpg = {
       healt: '❤️',
       exp: '✉️',
       money: '💵',
+      gold: '🪙',
+      arloji: '🪙',
       potion: '🥤',
       diamond: '💎',
+      
       common: '📦',
       uncommon: '🎁',
       mythic: '🗳️',
       legendary: '🗃️',
       pet: '🎁',
+      
       sampah: '🗑',
+      
       armor: '🥼',
       fishingrod: '🎣',
+      umpan: '🪱',
       pickaxe: '⛏️',
       sword: '⚔️',
+      
       kayu: '🪵',
       batu: '🪨',
       iron: '⛓️',
       string: '🕸️',
+      
       kuda: '🐎',
       kucing: '🐈' ,
       anjing: '🐕',
+      fox: '🦊',
+      kuda: '🐴',
+      serigala: '🐺',
+      phonix: '🦜',
+      centaur: '🐎',
+      griffin: '🦅',
+      naga: '🐉',
+      
+      foodpet: '🥩',      
       makananpet: '🍖',
+
+      mangga: '🥭',
+      apel: '🍎',
+      jeruk: '🍊',
+      pisang: '🍌',
+      anggur: '🍇',
+      
+      bibit: '🌾',
+      
       gold: '👑',
       emerald: '💚'
     }
@@ -135,3 +161,5 @@ fs.watchFile(file, () => {
   delete require.cache[file]
   require(file)
 })
+
+

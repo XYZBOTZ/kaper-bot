@@ -4,8 +4,8 @@ global.mods = JSON.parse(fs.readFileSync('./src/moderator.json')) // Want some h
 global.thumbt = global.img
 global.fsx = 999999999999
 global.kontak = [
-['6282146092695', 'AhmdLui', 'Kocak Gaming', 'ayonimasangat@gmail.com', true],
-['6289655134392', 'Rika❤️', 'Kocak Gaming', 'Nothing!', true]
+['6282146092695', 'AhmdLui', 'AhmdLui', 'ayonimasangat@gmail.com', true],
+['6289655134392', 'Rika', 'Rika❤️', 'Nothing!', true]
 
 ]
 global.APIs = { // API Prefix
@@ -98,26 +98,52 @@ global.rpg = {
       healt: '❤️',
       exp: '✉️',
       money: '💵',
+      gold: '🪙',
+      arloji: '🪙',
       potion: '🥤',
       diamond: '💎',
+      
       common: '📦',
       uncommon: '🎁',
       mythic: '🗳️',
       legendary: '🗃️',
       pet: '🎁',
+      
       sampah: '🗑',
+      
       armor: '🥼',
       fishingrod: '🎣',
+      umpan: '🪱',
       pickaxe: '⛏️',
       sword: '⚔️',
+      
       kayu: '🪵',
       batu: '🪨',
       iron: '⛓️',
       string: '🕸️',
+      
       kuda: '🐎',
       kucing: '🐈' ,
       anjing: '🐕',
+      fox: '🦊',
+      kuda: '🐴',
+      serigala: '🐺',
+      phonix: '🦜',
+      centaur: '🐎',
+      griffin: '🦅',
+      naga: '🐉',
+      
+      foodpet: '🥩',      
       makananpet: '🍖',
+
+      mangga: '🥭',
+      apel: '🍎',
+      jeruk: '🍊',
+      pisang: '🍌',
+      anggur: '🍇',
+      
+      bibit: '🌾',
+      
       gold: '👑',
       emerald: '💚'
     }
@@ -135,3 +161,5 @@ fs.watchFile(file, () => {
   delete require.cache[file]
   require(file)
 })
+
+

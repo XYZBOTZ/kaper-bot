@@ -22,7 +22,7 @@ Ketik *${usedPrefix}cek* untuk bantuan
 Bonus: ${poin} XP
 *Balas pesan ini untuk menjawab!*`.trim()
     conn.tebaklagu[id] = [
-        await conn.sendButtonImg(m.chat, fla + 'Tebak Lagu', caption, wm, 'Bantuan', usedPrefix + 'cek', m),
+        await conn.sendBut(m.chat, caption, wm, 'Bantuan', `.cek`, m, false),
         json, poin,
         setTimeout(() => {
             if (conn.tebaklagu[id]) conn.reply(m.chat, `Waktu habis!\nJawabannya adalah *${json.judul}*`, conn.tebaklagu[id][0])

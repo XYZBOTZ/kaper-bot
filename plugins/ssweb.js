@@ -16,7 +16,7 @@ let handler = async (m, { conn, command, args }) => {
 }
 handler.help = ['sspc', 'ssweb'].map(v => v + ' <url>')
 handler.tags = ['internet']
-handler.command = /^sspc|ssweb|ss?$/i
+handler.command = /^(sspc|ssweb)?$/i
 handler.owner = false
 handler.mods = false
 handler.premium = false
