@@ -250,9 +250,10 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
     })
     if (teks == '404') {
       let judul = `${ucapan()}, ${name}`.trim()
+      const fkontak = { key: {participant: `0@s.whatsapp.net`, ...(m.chat ? { remoteJid: `status@broadcast` } : {}) }, message: { 'contactMessage': { 'displayName': `${name}`, 'vcard': `BEGIN:VCARD\nVERSION:3.0\nN:XL;${wm},;;;\nFN:${wm},\nitem1.TEL;waid=${m.sender.split('@')[0]}:${m.sender.split('@')[0]}\nitem1.X-ABLabell:Ponsel\nEND:VCARD`, 'jpegThumbnail': require('fs').readFileSync('./src/logo.jpg'), thumbnail: require('fs').readFileSync('./src/logo.jpg'),sendEphemeral: true}}}
       const sections = [
       {
-        title: 'Rika ❤️',
+        title: 'Syg Rika ❤️',
         rows: [
           { title: 'Semua Perintah', rowId: `${_p + command} all` },
           { title: 'Game', rowId: `${_p + command} game` },
@@ -276,11 +277,24 @@ let handler = async (m, { conn, usedPrefix: _p, args, command }) => {
           { title: 'Sound & Vn', rowId: `${_p + command} vn`},          
           { title: 'Database', rowId: `${_p + command} database` },
           { title: 'Vote & Absen', rowId: `${_p + command} vote` },
-          { title: "Al-Qur\'an", rowId: `${_p + command} quran` },
+          { title: "Al-Qur\'an & Islami", rowId: `${_p + command} quran` },
           { title: 'Pengubah Suara', rowId: `${_p + command} audio` },
           { title: 'Jadi Bot', rowId: `${_p + command} jadibot` },
           { title: 'Info', rowId: `${_p +command} info` },
           { title: 'Tanpa Kategori', rowId: `${_p + command} tanpakategori` },
+        ]
+      },
+      
+     {
+        title: '️Trimakasih untuk Segenap Team Pembuat Script Bot ini',
+        rows: [
+          { title: 'Thanks To', rowId: `${_p}tqto` },
+        ]
+      },            
+        {
+        title: '️Gk Penting ini',
+        rows: [
+          { title: 'Script Bot', rowId: `${_p +command} info` },
           { title: 'Owner', rowId: `${_p + command} owner` },
         ]
       }
@@ -295,7 +309,7 @@ Jangan Lupa makan Dan juga ${alarmsolat()}
       buttonText: "Klik here",
       sections
     }
-    return conn.sendMessage(m.chat, listMessage, { quoted: m, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
+    return conn.sendMessage(m.chat, listMessage, { quoted: fkontak, mentions: await conn.parseMention(judul), contextInfo: { forwardingScore: 99999, isForwarded: true }})
     
     }
 
